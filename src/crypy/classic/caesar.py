@@ -1,5 +1,5 @@
 import string
-from ..utils import lang
+from crypy.utils import lang
 
 default_alphabet = [string.ascii_uppercase, string.ascii_lowercase]
 

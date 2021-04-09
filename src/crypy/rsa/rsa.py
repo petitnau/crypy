@@ -3,7 +3,7 @@ import operator
 import random
 import math
 import sympy
-from ..utils.maths import int_root
+from crypy.utils.maths import int_root
 
 
 class RSA:

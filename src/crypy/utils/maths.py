@@ -8,9 +8,3 @@ def int_root (n, radicand):
     while c not in (d, e):
         c, d, e = d, e, (a1 * e + radicand // (e ** a1)) // n
     return min(d, e)
-
-
-def test_introot():
-    assert int_root(2, 9) == 3
-    assert int_root(5, 14348907) == 27
-    assert int_root(27, 7450580596923828125) == 5

@@ -1,5 +1,7 @@
-from .rsa import *
+from crypy.rsa.rsa import RSA
+
 import functools
+import operator
 from Crypto.Util.number import getPrime
 from sympy import nextprime
 
@@ -25,6 +27,7 @@ def test_find_pq():
         assert False
 
     assert functools.reduce(operator.mul, res) == n
+
 
 def test_close_primes_attack():
     for i in range(2, 10):

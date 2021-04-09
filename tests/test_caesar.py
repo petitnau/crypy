@@ -1,4 +1,4 @@
-from .caesar import *
+from crypy.classic.caesar import *
 
 
 def test_encrypt():
