@@ -88,16 +88,29 @@ class RSA:
     def close_primes_attack(self, quantity=2):
         middle = int_root(quantity, self.n)
 
-        primes_base = [sympy.prevprime(middle), sympy.nextprime(middle)]
-        for i in range(1, quantity):
-            primes = primes_base[:]
-            for j in range(i-1):  # previous
-                primes = [sympy.prevprime(primes[0])] + primes
-            for j in range(quantity-i-1):  # next
-                primes = primes + [sympy.nextprime(primes[-1])]
-
-            n = functools.reduce(operator.mul, primes)
-            if n == self.n:
-                return primes
+        if sympy.isprime(middle):
+            primes_base = [middle]
+            for i in range(quantity):
+                primes = primes_base[:]
+                for j in range(i):  # previous
+                    primes = [sympy.prevprime(primes[0])] + primes
+                for j in range(quantity-i-1):  # next
+                    primes = primes + [sympy.nextprime(primes[-1])]
+                n = functools.reduce(operator.mul, primes)
+                if n == self.n:
+                    return primes
+            else:
+                return None
         else:
-            return None
+            primes_base = [sympy.prevprime(middle), sympy.nextprime(middle)]
+            for i in range(1, quantity):
+                primes = primes_base[:]
+                for j in range(i-1):  # previous
+                    primes = [sympy.prevprime(primes[0])] + primes
+                for j in range(quantity-i-1):  # next
+                    primes = primes + [sympy.nextprime(primes[-1])]
+                n = functools.reduce(operator.mul, primes)
+                if n == self.n:
+                    return primes
+            else:
+                return None
