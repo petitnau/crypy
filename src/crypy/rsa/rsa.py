@@ -99,8 +99,6 @@ class RSA:
                 n = functools.reduce(operator.mul, primes)
                 if n == self.n:
                     return primes
-            else:
-                return None
         else:
             primes_base = [sympy.prevprime(middle), sympy.nextprime(middle)]
             for i in range(1, quantity):
@@ -112,5 +110,5 @@ class RSA:
                 n = functools.reduce(operator.mul, primes)
                 if n == self.n:
                     return primes
-            else:
-                return None
+                
+        return None
