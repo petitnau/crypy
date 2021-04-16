@@ -1,6 +1,7 @@
 from functools import reduce
 import math
 
+
 class LCG:
     def __init__(self, a=None, c=None, m=None, s=None):
         if (a is None) and (c is None) and (m is None) and (type(s) == list) and (len(s) >= 4):
@@ -24,7 +25,6 @@ class LCG:
         self.m = m
         self.s = s
 
-
     def __iter__(self):
         return self
 
@@ -34,4 +34,3 @@ class LCG:
 
     def next(self):
         return self.next()
-

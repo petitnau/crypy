@@ -3,6 +3,7 @@ from crypy.utils import lang
 
 default_alphabet = [string.ascii_uppercase, string.ascii_lowercase]
 
+
 def encrypt(data, key, alphabets=default_alphabet):
     cipher = ''
     for c in data:

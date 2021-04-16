@@ -1,5 +1,6 @@
 from crypy.hash.sha256 import SHA256
 
+
 def test_sha256_yellowsub():
     assert SHA256("YELLOW SUBMARINE").hexdigest() == "876a397347432ede4fb5448a439b62e191e09daa925fdc48e63440a868924ad1"
 

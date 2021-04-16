@@ -1,6 +1,7 @@
 from crypy.random.mt import MT19937
 import random
 
+
 def test_mersenne_seed0():
     mt = MT19937(0)
     generated = [mt.random() for _ in range(20)]

@@ -125,4 +125,3 @@ class SHA256:
 
     def hexdigest(self):
         return binascii.hexlify(self.digest()).decode('ascii')
-

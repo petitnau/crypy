@@ -1,5 +1,6 @@
 from crypy.utils import maths
 
+
 def test_introot():
     assert maths.int_root(2, 9) == 3
     assert maths.int_root(5, 14348907) == 27
