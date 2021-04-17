@@ -62,7 +62,7 @@ class SHA256:
         self._h = copy.deepcopy(self._h)
 
         if state is not None and counter is not None:
-            self._h = [int.from_bytes(state[i:i+4], byteorder="big") for i in range(0, 32, 4)]
+            self._h = state
             self._counter = counter
         if m is not None:
             self.update(m)
@@ -71,7 +71,8 @@ class SHA256:
     def clone(cls, secret_len, base, base_hash):
         base_padded = base+cls._pad(secret_len + len(base))
 
-        h = SHA256(state=base_hash, counter=secret_len + len(base_padded))
+        state = [int.from_bytes(base_hash[i:i+4], byteorder="big") for i in range(0, len(base_hash), 4)]
+        h = SHA256(state=state, counter=secret_len + len(base_padded))
         return base_padded, h
 
     def _compress(self, c):
@@ -116,6 +117,8 @@ class SHA256:
         for i in range(0, len(m) // 64):
             self._compress(m[64 * i:64 * (i + 1)])
         self._cache = m[-(len(m) % 64):]
+
+        return self
 
     def digest(self):
         r = copy.deepcopy(self)
