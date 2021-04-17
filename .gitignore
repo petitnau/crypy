@@ -1,4 +1,4 @@
 venv
 .idea
-src/crypy.egg-info
-dist/*
+crypy.egg-info
+dist

@@ -4,6 +4,7 @@ setup(
     name='crypy',
     version='0.1.1',
     packages=['crypy', 'crypy.aes', 'crypy.rsa', 'crypy.hash', 'crypy.utils', 'crypy.random', 'crypy.classic'],
+    package_dir={'': 'src'},
     license='MIT',
     url='https://github.com/petitnau/crypy',
     download_url='https://github.com/petitnau/crypy/archive/refs/tags/v0.1.1-alpha.tar.gz',
